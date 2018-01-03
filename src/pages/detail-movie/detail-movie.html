@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title *ngIf="movie">{{movie.title}}</ion-title> 
+  </ion-navbar>
+  <ion-toolbar color="light">
+    <ion-title *ngIf="movie">Information about your movie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngIf="movie">
+        <ion-card-header>
+          <h1>Description </h1>
+        </ion-card-header>
+        <ion-card-content> {{movie.description}}</ion-card-content>
+        <ion-item>Category : {{movie.category}} </ion-item>     
+    </ion-card>
+    <ion-row>
+    <button ion-button icon-right full color="danger" (tap)="editMovie(movie)">Edit</button>
+    <button ion-button icon-right full color="danger" (tap)="deleteMovie(movie)">Delete</button> 
+    </ion-row>
+</ion-content>

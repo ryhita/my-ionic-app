@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="danger">
+      <ion-title *ngIf="movie">Edit {{movie.title}}</ion-title> 
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list *ngIf="movie">
+      <ion-card>
+        <ion-item>
+            <ion-label stacked>Title</ion-label>
+            <ion-input type="text" [(ngModel)]="title" name="title" value="{{movie.title}}"></ion-input>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+            <ion-label stacked>Description</ion-label>
+            <ion-textarea [(ngModel)]="description" name="description" value="{{movie.description}}"></ion-textarea>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-label stacked>Category</ion-label>
+          <ion-input type="text" [(ngModel)]="category" name="category" value="{{movie.category}}"></ion-input>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+    <button ion-button type="submit" block color="danger" (tap)="editMovie()">Edit my movie</button>
+  </ion-content>
+
